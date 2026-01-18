@@ -1,0 +1,13 @@
+{
+  "itemGroup.missingi18n": "Example Mod Tab",
+  "block.missingi18n.example_block": "Example Block",
+  "item.missingi18n.example_item": "Example Item",
+
+  "missingi18n.configuration.title": "Missing i18n Configs",
+  "missingi18n.configuration.section.missingi18n.common.toml": "Missing i18n Configs",
+  "missingi18n.configuration.section.missingi18n.common.toml.title": "Missing i18n Configs",
+  "missingi18n.configuration.items": "Item List",
+  "missingi18n.configuration.logDirtBlock": "Log Dirt Block",
+  "missingi18n.configuration.magicNumberIntroduction": "Magic Number Text",
+  "missingi18n.configuration.magicNumber": "Magic Number"
+}

@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "missing.i18n.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ClientLanguageMixin",
+    "DefaultLanguageMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
