@@ -1,25 +1,39 @@
+# Missing i18n
 
-Installation information
-=======
+**Missing i18n** 是一个为 Minecraft 翻译者、模组包作者和开发者设计的辅助模组。它能自动检测并记录游戏中所有缺失的语言本地化键（Translation Keys），并将其分类保存，极大地方便了汉化和排查工作。
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+## 结果输出
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+捕获到的缺失键将保存在游戏根目录下的 `missingi18n/` 文件夹内：
+- `missingi18n/<modid>/<lang>.txt`：按模组 ID 分类的缺失键。
+- `missingi18n/all/<lang>.txt`：所有模组缺失键的汇总。
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+格式示例：`item.example_mod.example_item|`
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+## 开发者 API
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+如果你是模组开发者，可以通过以下方式与 Missing i18n 联动：
+
+### 使用 API 手动记录
+```java
+import missing.i18n.api.Missingi18nAPI;
+
+// 手动触发记录一个缺失键
+Missingi18nAPI.recordMissingKey("my.custom.missing.key");
+
+// 检查某个键是否已被记录
+boolean recorded = Missingi18nAPI.isRecorded("my.key", "zh_cn");
+```
+
+### 监听事件
+通过 NeoForge 的事件总线监听 `MissingTranslationEvent`：
+```java
+@SubscribeEvent
+public void onMissingTranslation(MissingTranslationEvent event) {
+    String key = event.getKey();
+    String language = event.getLanguage();
+    String modId = event.getModId();
+    
+    // 在此处执行你的自定义逻辑
+}
+```
