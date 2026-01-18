@@ -1,0 +1,5 @@
+{
+  "chat.missingi18n_example.missing_key": "§c[Missingi18n]§r Missing key found: §e%s§r (§7%s§r)",
+  "command.missingi18n_example.record.success": "Manually recorded missing key: %s",
+  "command.missingi18n_example.get.result": "Key [%s] is recorded (zh_cn): %s"
+}
