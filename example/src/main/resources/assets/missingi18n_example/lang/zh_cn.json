@@ -1,5 +1,0 @@
-{
-  "chat.missingi18n_example.missing_key": "§c[Missingi18n]§r 发现缺失键: §e%s§r (§7%s§r)",
-  "command.missingi18n_example.record.success": "已手动记录缺失键: %s",
-  "command.missingi18n_example.get.result": "键 [%s] 是否已记录 (zh_cn): %s"
-}
