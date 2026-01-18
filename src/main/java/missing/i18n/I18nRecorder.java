@@ -1,5 +1,6 @@
 package missing.i18n;
 
+import missing.i18n.api.Missingi18nAPI;
 import net.minecraft.client.Minecraft;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLPaths;
@@ -37,6 +38,13 @@ public class I18nRecorder {
         saveKey(modid, language, key);
         saveKey("all", language, key); // 额外保存到 all 文件夹
         RECORDED_KEYS.add(cacheKey);
+        
+        // 触发事件
+        Missingi18nAPI.fireEvent(key, language, modid);
+    }
+
+    public static boolean isRecorded(String key, String language) {
+        return RECORDED_KEYS.contains(language + ":" + key);
     }
 
     private static String detectModId(String key) {
